@@ -3,6 +3,9 @@
   상태 관리를 위해 `useState` 훅을 사용하여 할 일 목록과 입력값을 관리합니다.
   할 일 목록의 추가, 삭제, 완료 상태 변경 등의 기능을 구현하였습니다.
 */
+
+
+
 import React, { useState, useEffect } from "react";
 import TodoItem from "@/components/TodoItem";
 import styles from "@/styles/TodoList.module.css";
@@ -19,8 +22,6 @@ import{
   orderBy,
   
 }from "firebase/firestore";
-
-const todoCollection = collection(db, "todos");
 
 
 // TodoList 컴포넌트를 정의합니다.
@@ -65,7 +66,7 @@ const addTodo = async () => {
 
 
 const toggleTodo = (id)=>{
- const newTodos = todos.map((todo)=> {
+const newTodos = todos.map((todo)=> {
   if(todo.id === id){
     const todoDoc = doc(todoCollection, id);
     updateDoc(todoDoc, {completed : !todo.completed});
@@ -75,8 +76,8 @@ const toggleTodo = (id)=>{
     return todo;
 
   }
- });
- setTodos(newTodos);
+});
+setTodos(newTodos);
 
 };
 
@@ -115,7 +116,9 @@ const toggleTodo = (id)=>{
       </h1>
       {/* 할 일을 입력받는 텍스트 필드입니다. */}
       <input
-        type="text"
+        type="text" 
+
+
         // className={styles.itemInput}
         // -- itemInput CSS code --
         // input[type="text"].itemInput {
@@ -160,6 +163,7 @@ const toggleTodo = (id)=>{
             todo={todo}
             onToggle={() => toggleTodo(todo.id)}
             onDelete={() => deleteTodo(todo.id)}
+            
           />
         ))}
       </ul>
