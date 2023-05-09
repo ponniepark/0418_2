@@ -35,6 +35,7 @@ const TodoList = () => {
   const { data } = useSession();
 
 
+
   const getTodos = async () => {
    
     if (!data?.user?.name) return;
@@ -63,7 +64,11 @@ const TodoList = () => {
 
   useEffect(() => {
     getTodos();
+
   }, [data]);
+
+
+
 
   // addTodo 함수는 입력값을 이용하여 새로운 할 일을 목록에 추가하는 함수입니다.
   const addTodo = async () => {
@@ -109,7 +114,7 @@ const TodoList = () => {
   const deleteTodo = (id) => {
     // Firestore 에서 해당 id를 가진 할 일을 삭제합니다.
     const todoDoc = doc(todoCollection, id);
-    deleteDoc(todoDoc);
+     deleteDoc(todoDoc);
 
     // 해당 id를 가진 할 일을 제외한 나머지 목록을 새로운 상태로 저장합니다.
     // setTodos(todos.filter((todo) => todo.id !== id));
