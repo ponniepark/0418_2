@@ -3,12 +3,7 @@ import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function Signin() {
   const router = useRouter();
-  const { data : session } = useSession();
-
-  ////망하면 지울 것
-
-
-  ////
+  const { data: session } = useSession();
 
   return (
     <div className="flex justify-center h-screen">
@@ -37,8 +32,6 @@ export default function Signin() {
           >
             Sign out
           </button>
-
-
         </div>
       ) : (
         <div className="grid m-auto text-center">
@@ -54,10 +47,6 @@ export default function Signin() {
           >
             Sign in
           </button>
-
-
-
-
         </div>
       )}
     </div>

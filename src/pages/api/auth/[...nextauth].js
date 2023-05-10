@@ -9,26 +9,12 @@ export default NextAuth({
     }),
   ],
   callbacks: {
-
-////(작동 안되면 삭제할 공간)
-
-
-
-////(작동 안되면 삭제할 공간)
-
     async session({ session, token, user }) {
       session.user.id = token.sub;
       session.user.name = token.name;
-// console.log("token", token);
-
-////망하면 지울 것
-
-
-////망하면 지울 것
-
-
-
+      // console.log("token", token);
       return session;
     },
   },
 });
+

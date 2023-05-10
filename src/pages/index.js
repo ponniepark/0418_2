@@ -4,8 +4,6 @@ import { useSession } from "next-auth/react";
 
 import TodoList from "../components/TodoList";
 
-
-
 export default function Home() {
   const router = useRouter();
   const { data } = useSession({
@@ -14,9 +12,6 @@ export default function Home() {
       router.replace("/auth/signin");
     },
   });
-
-
-
 
   return (
     <div>
