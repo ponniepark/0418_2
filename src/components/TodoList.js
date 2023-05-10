@@ -34,8 +34,6 @@ const TodoList = () => {
 
   const { data } = useSession();
 
-
-
   const getTodos = async () => {
    
     if (!data?.user?.name) return;
@@ -52,9 +50,6 @@ const TodoList = () => {
     const newTodos = [];
 
 
-
-
-
     // 가져온 할 일 목록을 newTodos 배열에 담습니다.
     results.docs.forEach((doc) => {
       newTodos.push({ id: doc.id, ...doc.data() });
@@ -68,7 +63,6 @@ const TodoList = () => {
 
   useEffect(() => {
     getTodos();
-
   }, [data]);
 
 
