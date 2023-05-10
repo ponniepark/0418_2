@@ -128,6 +128,22 @@ const TodoList = () => {
   // 컴포넌트를 렌더링합니다.
   return (
     <div className={styles.container}>
+
+<button
+  className={`w-40
+    justify-self-end
+    p-1 mb-4
+    bg-blue-500 text-white
+    border border-blue-500 rounded
+    hover:bg-white hover:text-blue-500`}
+  style={{ gridRow: "-1", gridColumn: "-1" }}
+  onClick={() => signOut()}
+>
+  Sign out
+</button>
+
+
+
       <h1 className="text-xl mb-4 font-bold underline underline-offset-4 decoration-wavy">
         Not Todo List
       </h1>
@@ -174,18 +190,7 @@ const TodoList = () => {
           Add Todo
         </button>
 
-        <button
-  className={`w-40
-    justify-self-end
-    p-1 mb-4
-    bg-blue-500 text-white
-    border border-blue-500 rounded
-    hover:bg-white hover:text-blue-500`}
-  style={{ gridRow: "-1", gridColumn: "-1" }}
-  onClick={() => signOut()}
->
-  Sign out
-</button>
+        
 
         
       </div>
