@@ -8,7 +8,7 @@ import TodoList from "../components/TodoList";
 
 export default function Home() {
   const router = useRouter();
-  const { data : session } = useSession({
+  const { data } = useSession({
     required: true,
     onUnauthenticated() {
       router.replace("/auth/signin");
@@ -17,8 +17,6 @@ export default function Home() {
 
   return (
     <div>
-
-
       <TodoList />
     </div>
   );

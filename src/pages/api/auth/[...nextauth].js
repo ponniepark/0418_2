@@ -16,8 +16,6 @@ export default NextAuth({
 
 ////(작동 안되면 삭제할 공간)
 
-
-
     async session({ session, token, user }) {
       session.user.id = token.sub;
       session.user.name = token.name;

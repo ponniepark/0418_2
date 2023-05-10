@@ -3,7 +3,7 @@ import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function Signin() {
   const router = useRouter();
-  const { data: session } = useSession();
+  const { data : session } = useSession();
 
   ////망하면 지울 것
   
