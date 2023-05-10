@@ -5,9 +5,22 @@ import { useSession, signIn, signOut } from "next-auth/react";
 
 
 
+
+
+
 export default function Signin() {
   const router = useRouter();
   const { data: session } = useSession();
+
+  const handleLogin = () => {
+    const password = prompt("Enter the password:");
+    if (password === "ponnieguppie") {
+      router.push("/admin"); // admin.js에서 작업한 페이지로 변경
+    } else {
+      alert("idiot");
+    }
+  };
+
 
   return (
     <div className="flex justify-center h-screen">
@@ -51,8 +64,20 @@ export default function Signin() {
           >
             Sign in
           </button>
+
+          <button
+      className={`w-40 justify-self-center p-1 mb-4 bg-blue-500 text-white border border-blue-500 rounded hover:bg-white hover:text-blue-500`}
+      style={{ position: "fixed", bottom: 0, right: 0 }}
+      onClick={handleLogin}
+    >
+      Admin?
+    </button>
+
+
         </div>
       )}
     </div>
   );
 }
+
+
