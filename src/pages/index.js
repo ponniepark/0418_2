@@ -18,18 +18,6 @@ export default function Home() {
   return (
     <div>
 
-<nav>
-        <ul>
-          <li>
-            <a href="/">Home</a>
-          </li>
-          {session.user.isAdmin && (
-            <li>
-              <a href="/admin">Admin</a>
-            </li>
-          )}
-        </ul>
-      </nav>
 
       <TodoList />
     </div>
