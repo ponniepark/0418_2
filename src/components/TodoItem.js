@@ -8,7 +8,7 @@ import React from "react";
 import styles from "@/styles/TodoList.module.css";
 
 // TodoItem 컴포넌트를 정의합니다.
-const TodoItem = ({ todo, onToggle, onDelete }) => {
+const TodoItem = ({ todo, onToggle, onDelete, handleDelete }) => {
   // 각 할 일 항목을 렌더링합니다.
   return (
 
