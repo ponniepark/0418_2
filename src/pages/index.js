@@ -15,6 +15,12 @@ export default function Home() {
     },
   });
 
+
+  if (data && data.user && data.user.isAdmin) {
+    router.replace("/admin");
+    return null;
+  }
+
   return (
     <div>
       <TodoList />

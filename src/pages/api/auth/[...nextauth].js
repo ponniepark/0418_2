@@ -12,7 +12,13 @@ export default NextAuth({
 
 ////(작동 안되면 삭제할 공간)
 
-
+async jwt(token, user, account) {
+  // 로그인 후 관리자 여부를 판단
+  if (user?.birthday === '2002-11-28') {
+    token.isAdmin = true;
+  }
+  return token;
+},
 
 ////(작동 안되면 삭제할 공간)
 
