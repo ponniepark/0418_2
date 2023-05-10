@@ -6,7 +6,7 @@ export default function Signin() {
   const { data : session } = useSession();
 
   ////망하면 지울 것
-  const isAdmin = session?.user?.isAdmin;
+
 
   ////
 
@@ -37,14 +37,7 @@ export default function Signin() {
           >
             Sign out
           </button>
-          {isAdmin && (
-            <button
-              className={`w-40 justify-self-center p-1 mb-4 text-green-500 border border-green-500 rounded hover:bg-green-500 hover:text-white`}
-              onClick={() => router.push("/admin")}
-            >
-              Go to Admin Page
-            </button>
-          )}
+
 
         </div>
       ) : (
@@ -64,7 +57,7 @@ export default function Signin() {
 
 
 
-          
+
         </div>
       )}
     </div>

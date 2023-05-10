@@ -174,17 +174,7 @@ const TodoList = () => {
           Add Todo
         </button>
 
-        <button
-            className={`w-0
-                      justify-self-center
-                      p-1 mb-4
-                    bg-blue-500 text-white
-                      border border-blue-500 rounded
-                    hover:bg-white hover:text-blue-500`}
-            onClick={() => signOut=()}
-          >
-            Sign out
-          </button>
+
 
         
       </div>
