@@ -145,7 +145,7 @@ const TodoList = () => {
 
 
       <h1 className="text-xl mb-4 font-bold underline underline-offset-4 decoration-wavy">
-        Not Todo List
+      {data?.user?.name}'s Not Todo List
       </h1>
       {/* 할 일을 입력받는 텍스트 필드입니다. */}
       <input
