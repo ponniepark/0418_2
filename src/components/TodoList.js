@@ -29,6 +29,7 @@ const todoCollection = collection(db, "todos");
 
 // TodoList 컴포넌트를 정의합니다.
 const TodoList = () => {
+  
   // 상태를 관리하는 useState 훅을 사용하여 할 일 목록과 입력값을 초기화합니다.
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");

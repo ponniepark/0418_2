@@ -25,7 +25,6 @@ const AdminPage = () => {
     const unsubscribe = onSnapshot(
       query(
         todoCollection,
-        session?.user?.id && where('userId', '==', session.user.id),
         orderBy('date', 'desc')
       ),
       (snapshot) => {
@@ -40,7 +39,7 @@ const AdminPage = () => {
     );
 
     return () => unsubscribe();
-  }, [session]);
+  }, []);
 
   const handleDeleteTodo = async (id) => {
     try {
@@ -88,18 +87,38 @@ const AdminPage = () => {
 
   const [input, setInput] = useState('');
 
+  const handleDeleteAllTodos = async () => {
+    try {
+      const todosToDelete = await query(
+        todoCollection,
+        session?.user?.id && where('userId', '==', session.user.id)
+      ).get();
+
+      const batch = db.batch();
+
+      todosToDelete.forEach((doc) => {
+        batch.delete(doc(todoCollection, doc.id));
+      });
+
+      await batch.commit();
+      setTodos([]);
+    } catch (error) {
+      console.error('Error deleting all todos: ', error);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <h1>Todo List</h1>
       <form onSubmit={handleAddTodo}>
         <input type="text" value={input} onChange={(e) => setInput(e.target.value)} />
-       
       </form>
       <ul className={styles.list}>
         {todos.map((todo) => (
           <TodoItem key={todo.id} todo={todo} handleDeleteTodo={handleDeleteTodo} />
         ))}
       </ul>
+      <button onClick={handleDeleteAllTodos}>Delete All Todos</button>
     </div>
   );
 };

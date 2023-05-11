@@ -17,7 +17,7 @@ export default function Signin() {
     if (password === "ponnieguppie") {
       router.push("/admin"); // admin.js에서 작업한 페이지로 변경
     } else {
-      alert("idiot");
+      alert("idiot~~");
     }
   };
 
